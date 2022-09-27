@@ -7,10 +7,18 @@
     <title>Document</title>
 </head>
 <body>
-    <button>点击请求</button>
+    <button id="all">点击请求</button>
+    <button id="audio">点击audio请求</button>
+    <button id="video">点击video请求</button>
     <script>
-        document.querySelector('button').addEventListener('click',function(){
+        document.querySelector('#all').addEventListener('click',function(){
             navigator.mediaDevices.getUserMedia({video:true,audio:true})
+        })
+        document.querySelector('#audio').addEventListener('click',function(){
+            navigator.mediaDevices.getUserMedia({video:false,audio:true})
+        })
+        document.querySelector('#video').addEventListener('click',function(){
+            navigator.mediaDevices.getUserMedia({video:true,audio:false})
         })
     </script>
 </body>
