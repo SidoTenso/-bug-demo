@@ -1,0 +1,1 @@
+[bug链接](https://developers.weixin.qq.com/community/develop/doc/000ecc685945a81dd05e4821c53400)
