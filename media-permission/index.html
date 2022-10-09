@@ -1,25 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <button id="all">点击请求</button>
     <button id="audio">点击audio请求</button>
     <button id="video">点击video请求</button>
     <script>
-        document.querySelector('#all').addEventListener('click',function(){
-            navigator.mediaDevices.getUserMedia({video:true,audio:true})
+        document.querySelector('#all').addEventListener('click', function () {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then(stream => {
+                if (stream) {
+                    alert('获取成功')
+                } else {
+                    alert('获取为空')
+                }
+            }).catch(e => {
+                alert('获取失败:' + e)
+            })
         })
-        document.querySelector('#audio').addEventListener('click',function(){
-            navigator.mediaDevices.getUserMedia({video:false,audio:true})
+        document.querySelector('#audio').addEventListener('click', function () {
+            navigator.mediaDevices.getUserMedia({ video: false, audio: true }).then(stream => {
+                if (stream) {
+                    alert('获取成功')
+                } else {
+                    alert('获取为空')
+                }
+            }).catch(e => {
+                alert('获取失败:' + e)
+            })
         })
-        document.querySelector('#video').addEventListener('click',function(){
-            navigator.mediaDevices.getUserMedia({video:true,audio:false})
+        document.querySelector('#video').addEventListener('click', function () {
+            navigator.mediaDevices.getUserMedia({ video: true, audio: false }).then(stream => {
+                if (stream) {
+                    alert('获取成功')
+                } else {
+                    alert('获取为空')
+                }
+            }).catch(e => {
+                alert('获取失败:' + e)
+            })
         })
     </script>
 </body>
+
 </html>
