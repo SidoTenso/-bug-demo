@@ -12,9 +12,12 @@
     <button id="all">点击请求</button>
     <button id="audio">点击audio请求</button>
     <button id="video">点击video请求</button>
+    <script src="./vconsole.min.js"></script>
     <script>
+
         document.querySelector('#all').addEventListener('click', function () {
             navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then(stream => {
+                console.log(stream)
                 if (stream) {
                     alert('获取成功')
                 } else {
@@ -22,10 +25,12 @@
                 }
             }).catch(e => {
                 alert('获取失败:' + e)
+                console.log(e)
             })
         })
         document.querySelector('#audio').addEventListener('click', function () {
             navigator.mediaDevices.getUserMedia({ video: false, audio: true }).then(stream => {
+                console.log(stream)
                 if (stream) {
                     alert('获取成功')
                 } else {
@@ -33,10 +38,12 @@
                 }
             }).catch(e => {
                 alert('获取失败:' + e)
+                console.log(e)
             })
         })
         document.querySelector('#video').addEventListener('click', function () {
             navigator.mediaDevices.getUserMedia({ video: true, audio: false }).then(stream => {
+                console.log(stream)
                 if (stream) {
                     alert('获取成功')
                 } else {
@@ -44,8 +51,10 @@
                 }
             }).catch(e => {
                 alert('获取失败:' + e)
+                console.log(e)
             })
         })
+        new VConsole()
     </script>
 </body>
 
